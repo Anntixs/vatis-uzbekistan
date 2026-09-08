@@ -3,9 +3,9 @@
   "id": "578f01b2-9669-501f-bd24-43cb4aaf17c0",
   "stations": [
     {
-      "id": "6d2a86fd-64d3-5b8c-82f0-2cd04daceed3",
+      "id": "cb9038ba-99b3-5591-b915-85f2d7196adb",
       "ordinal": 0,
-      "identifier": "UTTT",
+      "identifier": "UZTT",
       "name": "Tashkent",
       "atisType": "Combined",
       "codeRange": {
@@ -23,38 +23,38 @@
           "speakLeadingZero": false,
           "standard": {
             "template": {
-              "text": "{wind_dir}{wind_spd}KT",
+              "text": "WIND {wind_dir} DEGREES {wind_spd} KT",
               "voice": "WIND {wind_dir} DEGREES {wind_spd} KNOTS.."
             }
           },
           "standardGust": {
             "template": {
-              "text": "{wind_dir}{wind_spd}G{wind_gust}KT",
+              "text": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KT",
               "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variable": {
             "template": {
-              "text": "VRB{wind_spd}KT",
+              "text": "WIND VARIABLE {wind_spd} KT",
               "voice": "WIND VARIABLE {wind_spd} KNOTS.."
             }
           },
           "variableGust": {
             "template": {
-              "text": "VRB{wind_spd}G{wind_gust}KT",
+              "text": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KT",
               "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variableDirection": {
             "template": {
-              "text": "{wind_vmin}V{wind_vmax}",
+              "text": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}",
               "voice": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}.."
             }
           },
           "calm": {
             "calmWindSpeed": 0,
             "template": {
-              "text": "{wind}",
+              "text": "WIND CALM",
               "voice": "WIND CALM.."
             }
           },
@@ -77,7 +77,7 @@
           "includeVisibilitySuffix": true,
           "metersCutoff": 5000,
           "template": {
-            "text": "{visibility}",
+            "text": "VIS {visibility}",
             "voice": "VISIBILITY {visibility}.."
           }
         },
@@ -1898,7 +1898,7 @@
           "usePlusPrefix": false,
           "speakLeadingZero": true,
           "template": {
-            "text": "T{temp}",
+            "text": "TEMPERATURE {temp}",
             "voice": "TEMPERATURE {temp}.."
           }
         },
@@ -1906,14 +1906,14 @@
           "usePlusPrefix": false,
           "speakLeadingZero": true,
           "template": {
-            "text": "DP{dewpoint}..",
+            "text": "DEWPOINT {dewpoint}",
             "voice": "DEWPOINT {dewpoint}.."
           }
         },
         "altimeter": {
           "pronounceDecimal": false,
           "template": {
-            "text": "QNH{altimeter}",
+            "text": "QNH {altimeter} HPA",
             "voice": "QNH {altimeter} HECTOPASCALS.."
           }
         },
@@ -1942,7 +1942,7 @@
             }
           ],
           "template": {
-            "text": "TL{trl}",
+            "text": "TRANSITION LEVEL {trl}",
             "voice": "TRANSITION LEVEL {trl}.."
           }
         },
@@ -1972,11 +1972,11 @@
       },
       "presets": [
         {
-          "id": "4fcf3302-977f-5598-b0b8-1ef16c3d36ba",
+          "id": "422c7473-b3b5-5979-ae74-6eabae661946",
           "name": "08L",
           "airportConditions": "",
           "notams": "",
-          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE].. [OBS_TIME].. EXPECT ILS APP RWY 08L.. DEP RWY 08L.. [FULL_WX_STRING].. [TL].. TORA FROM TWY A 4000 M.. ON INITIAL CTC REPORT STAND AND READINESS..",
+          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08L. EXPECT ILS APPROACH.\nDEP RWY 08L.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY A 4000 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -1988,11 +1988,11 @@
           }
         },
         {
-          "id": "887b2c64-e6ff-5633-b64e-99237c61ad55",
+          "id": "888c3d70-1e95-564d-a2f6-7856612a0f2e",
           "name": "26R",
           "airportConditions": "",
           "notams": "",
-          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE].. [OBS_TIME].. EXPECT ILS APP RWY 26R.. DEP RWY 26R.. [FULL_WX_STRING].. [TL].. TORA FROM TWY D 4000 M.. ON INITIAL CTC REPORT STAND AND READINESS..",
+          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26R. EXPECT ILS APPROACH.\nDEP RWY 26R.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY D 4000 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2004,11 +2004,11 @@
           }
         },
         {
-          "id": "344edbdd-1bce-520e-87a5-a0f11ec3d3b2",
+          "id": "60211551-d843-5ddd-aca3-ea40c11258a7",
           "name": "08R",
           "airportConditions": "",
           "notams": "",
-          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE].. [OBS_TIME].. EXPECT RNP APP RWY 08R.. DEP RWY 08R.. [FULL_WX_STRING].. [TL].. TORA FROM TWY B 3800 M.. ON INITIAL CTC REPORT STAND AND READINESS..",
+          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08R. EXPECT RNP APPROACH.\nDEP RWY 08R.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY B 3800 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2020,11 +2020,11 @@
           }
         },
         {
-          "id": "27d596f5-e30a-5234-9abb-2cc188328379",
+          "id": "29a847cb-920b-5da1-bfc1-94e9b7e9b124",
           "name": "26L",
           "airportConditions": "",
           "notams": "",
-          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE].. [OBS_TIME].. EXPECT RNP APP RWY 26L.. DEP RWY 26L.. [FULL_WX_STRING].. [TL].. TORA FROM TWY E 3800 M.. ON INITIAL CTC REPORT STAND AND READINESS..",
+          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26L. EXPECT RNP APPROACH.\nDEP RWY 26L.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY E 3800 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2036,11 +2036,11 @@
           }
         },
         {
-          "id": "bb3fa82b-970a-5169-8a7c-cd2d628aebb3",
+          "id": "ce2f6230-5919-5b0b-9503-f11759f3a8ea",
           "name": "08L+08R",
           "airportConditions": "",
           "notams": "",
-          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE].. [OBS_TIME].. EXPECT ILS APP RWY 08L.. DEP RWY 08R.. [FULL_WX_STRING].. [TL].. TORA FROM TWY B 3800 M.. ON INITIAL CTC REPORT STAND AND READINESS..",
+          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08L. EXPECT ILS APPROACH.\nDEP RWY 08R.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY B 3800 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2052,11 +2052,11 @@
           }
         },
         {
-          "id": "71fb07d7-4f36-5ece-a38f-d86cf03c4c73",
+          "id": "c21798ac-2104-5d96-89ea-3d11dce3c195",
           "name": "26R+26L",
           "airportConditions": "",
           "notams": "",
-          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE].. [OBS_TIME].. EXPECT ILS APP RWY 26R.. DEP RWY 26L.. [FULL_WX_STRING].. [TL].. TORA FROM TWY E 3800 M.. ON INITIAL CTC REPORT STAND AND READINESS..",
+          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26R. EXPECT ILS APPROACH.\nDEP RWY 26L.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY E 3800 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2194,9 +2194,9 @@
       "notamDefinitions": []
     },
     {
-      "id": "c3483cdd-9cda-5f20-b49b-81e9bf9ee162",
+      "id": "3971d3ed-76a2-57a4-8425-b7c37f71744b",
       "ordinal": 0,
-      "identifier": "UTSS",
+      "identifier": "UZSS",
       "name": "Samarkand",
       "atisType": "Combined",
       "codeRange": {
@@ -2214,38 +2214,38 @@
           "speakLeadingZero": false,
           "standard": {
             "template": {
-              "text": "{wind_dir}{wind_spd}KT",
+              "text": "WIND {wind_dir} DEGREES {wind_spd} KT",
               "voice": "WIND {wind_dir} DEGREES {wind_spd} KNOTS.."
             }
           },
           "standardGust": {
             "template": {
-              "text": "{wind_dir}{wind_spd}G{wind_gust}KT",
+              "text": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KT",
               "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variable": {
             "template": {
-              "text": "VRB{wind_spd}KT",
+              "text": "WIND VARIABLE {wind_spd} KT",
               "voice": "WIND VARIABLE {wind_spd} KNOTS.."
             }
           },
           "variableGust": {
             "template": {
-              "text": "VRB{wind_spd}G{wind_gust}KT",
+              "text": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KT",
               "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variableDirection": {
             "template": {
-              "text": "{wind_vmin}V{wind_vmax}",
+              "text": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}",
               "voice": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}.."
             }
           },
           "calm": {
             "calmWindSpeed": 0,
             "template": {
-              "text": "{wind}",
+              "text": "WIND CALM",
               "voice": "WIND CALM.."
             }
           },
@@ -2268,7 +2268,7 @@
           "includeVisibilitySuffix": true,
           "metersCutoff": 5000,
           "template": {
-            "text": "{visibility}",
+            "text": "VIS {visibility}",
             "voice": "VISIBILITY {visibility}.."
           }
         },
@@ -4089,7 +4089,7 @@
           "usePlusPrefix": false,
           "speakLeadingZero": true,
           "template": {
-            "text": "T{temp}",
+            "text": "TEMPERATURE {temp}",
             "voice": "TEMPERATURE {temp}.."
           }
         },
@@ -4097,14 +4097,14 @@
           "usePlusPrefix": false,
           "speakLeadingZero": true,
           "template": {
-            "text": "DP{dewpoint}..",
+            "text": "DEWPOINT {dewpoint}",
             "voice": "DEWPOINT {dewpoint}.."
           }
         },
         "altimeter": {
           "pronounceDecimal": false,
           "template": {
-            "text": "QNH{altimeter}",
+            "text": "QNH {altimeter} HPA",
             "voice": "QNH {altimeter} HECTOPASCALS.."
           }
         },
@@ -4133,7 +4133,7 @@
             }
           ],
           "template": {
-            "text": "TL{trl}",
+            "text": "TRANSITION LEVEL {trl}",
             "voice": "TRANSITION LEVEL {trl}.."
           }
         },
@@ -4163,11 +4163,11 @@
       },
       "presets": [
         {
-          "id": "e379df9c-c34f-5125-b84d-29d972cb20a5",
+          "id": "8c51412e-7ed5-5a51-957b-fe282e36f77e",
           "name": "09",
           "airportConditions": "",
           "notams": "",
-          "template": "SAMARKAND ATIS INFO [ATIS_CODE].. [OBS_TIME].. EXPECT ILS APP RWY 09.. DEP RWY 09.. [FULL_WX_STRING].. [TL].. TORA FROM TWY A 3100 M.. ON INITIAL CTC REPORT STAND AND READINESS..",
+          "template": "SAMARKAND ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 09. EXPECT ILS APPROACH.\nDEP RWY 09.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY A 3100 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -4179,11 +4179,11 @@
           }
         },
         {
-          "id": "1d858bcc-78c3-51c4-9570-7a683db0ce46",
+          "id": "29fe8912-57c8-5652-9113-225872b9cb60",
           "name": "27",
           "airportConditions": "",
           "notams": "",
-          "template": "SAMARKAND ATIS INFO [ATIS_CODE].. [OBS_TIME].. EXPECT RNP APP RWY 27.. DEP RWY 27.. [FULL_WX_STRING].. [TL].. TORA FROM TWY C 3100 M.. ON INITIAL CTC REPORT STAND AND READINESS..",
+          "template": "SAMARKAND ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 27. EXPECT RNP APPROACH.\nDEP RWY 27.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY C 3100 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -4301,9 +4301,9 @@
       "notamDefinitions": []
     },
     {
-      "id": "9688396a-6521-5f61-b7ae-dbed0b583162",
+      "id": "0ed41ab9-1d9a-53c2-9ed9-75aa0fc38fe1",
       "ordinal": 0,
-      "identifier": "UTFF",
+      "identifier": "UZFF",
       "name": "Fergana",
       "atisType": "Combined",
       "codeRange": {
@@ -4321,38 +4321,38 @@
           "speakLeadingZero": false,
           "standard": {
             "template": {
-              "text": "{wind_dir}{wind_spd}KT",
+              "text": "WIND {wind_dir} DEGREES {wind_spd} KT",
               "voice": "WIND {wind_dir} DEGREES {wind_spd} KNOTS.."
             }
           },
           "standardGust": {
             "template": {
-              "text": "{wind_dir}{wind_spd}G{wind_gust}KT",
+              "text": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KT",
               "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variable": {
             "template": {
-              "text": "VRB{wind_spd}KT",
+              "text": "WIND VARIABLE {wind_spd} KT",
               "voice": "WIND VARIABLE {wind_spd} KNOTS.."
             }
           },
           "variableGust": {
             "template": {
-              "text": "VRB{wind_spd}G{wind_gust}KT",
+              "text": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KT",
               "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variableDirection": {
             "template": {
-              "text": "{wind_vmin}V{wind_vmax}",
+              "text": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}",
               "voice": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}.."
             }
           },
           "calm": {
             "calmWindSpeed": 0,
             "template": {
-              "text": "{wind}",
+              "text": "WIND CALM",
               "voice": "WIND CALM.."
             }
           },
@@ -4375,7 +4375,7 @@
           "includeVisibilitySuffix": true,
           "metersCutoff": 5000,
           "template": {
-            "text": "{visibility}",
+            "text": "VIS {visibility}",
             "voice": "VISIBILITY {visibility}.."
           }
         },
@@ -6196,7 +6196,7 @@
           "usePlusPrefix": false,
           "speakLeadingZero": true,
           "template": {
-            "text": "T{temp}",
+            "text": "TEMPERATURE {temp}",
             "voice": "TEMPERATURE {temp}.."
           }
         },
@@ -6204,14 +6204,14 @@
           "usePlusPrefix": false,
           "speakLeadingZero": true,
           "template": {
-            "text": "DP{dewpoint}..",
+            "text": "DEWPOINT {dewpoint}",
             "voice": "DEWPOINT {dewpoint}.."
           }
         },
         "altimeter": {
           "pronounceDecimal": false,
           "template": {
-            "text": "QNH{altimeter}",
+            "text": "QNH {altimeter} HPA",
             "voice": "QNH {altimeter} HECTOPASCALS.."
           }
         },
@@ -6240,7 +6240,7 @@
             }
           ],
           "template": {
-            "text": "TL{trl}",
+            "text": "TRANSITION LEVEL {trl}",
             "voice": "TRANSITION LEVEL {trl}.."
           }
         },
@@ -6270,11 +6270,11 @@
       },
       "presets": [
         {
-          "id": "fae8de86-dc1c-534d-a6c4-63d8424de65a",
+          "id": "8741c99e-7798-5838-80c5-a4baaa9cedc0",
           "name": "08",
           "airportConditions": "",
           "notams": "",
-          "template": "FERGANA ATIS INFO [ATIS_CODE].. [OBS_TIME].. EXPECT RNP APP RWY 08.. DEP RWY 08.. [FULL_WX_STRING].. [TL].. TORA FROM TWY A 2700 M.. ON INITIAL CTC REPORT STAND AND READINESS..",
+          "template": "FERGANA ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08. EXPECT RNP APPROACH.\nDEP RWY 08.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY A 2700 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -6286,11 +6286,11 @@
           }
         },
         {
-          "id": "7cef53b2-0d35-556d-a6aa-e697a859a68d",
+          "id": "86136fa3-e08e-5a0f-b02c-f0806c4aced8",
           "name": "26",
           "airportConditions": "",
           "notams": "",
-          "template": "FERGANA ATIS INFO [ATIS_CODE].. [OBS_TIME].. EXPECT ILS APP RWY 26.. DEP RWY 26.. [FULL_WX_STRING].. [TL].. TORA FROM TWY B 2700 M.. ON INITIAL CTC REPORT STAND AND READINESS..",
+          "template": "FERGANA ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26. EXPECT ILS APPROACH.\nDEP RWY 26.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY B 2700 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -6408,9 +6408,9 @@
       "notamDefinitions": []
     },
     {
-      "id": "ad7a2634-bbf7-5c0e-9b90-448be1fdcadd",
+      "id": "4245776f-972c-578d-b766-84f375125113",
       "ordinal": 0,
-      "identifier": "UTNN",
+      "identifier": "UZNN",
       "name": "Namangan",
       "atisType": "Combined",
       "codeRange": {
@@ -6428,38 +6428,38 @@
           "speakLeadingZero": false,
           "standard": {
             "template": {
-              "text": "{wind_dir}{wind_spd}KT",
+              "text": "WIND {wind_dir} DEGREES {wind_spd} KT",
               "voice": "WIND {wind_dir} DEGREES {wind_spd} KNOTS.."
             }
           },
           "standardGust": {
             "template": {
-              "text": "{wind_dir}{wind_spd}G{wind_gust}KT",
+              "text": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KT",
               "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variable": {
             "template": {
-              "text": "VRB{wind_spd}KT",
+              "text": "WIND VARIABLE {wind_spd} KT",
               "voice": "WIND VARIABLE {wind_spd} KNOTS.."
             }
           },
           "variableGust": {
             "template": {
-              "text": "VRB{wind_spd}G{wind_gust}KT",
+              "text": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KT",
               "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variableDirection": {
             "template": {
-              "text": "{wind_vmin}V{wind_vmax}",
+              "text": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}",
               "voice": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}.."
             }
           },
           "calm": {
             "calmWindSpeed": 0,
             "template": {
-              "text": "{wind}",
+              "text": "WIND CALM",
               "voice": "WIND CALM.."
             }
           },
@@ -6482,7 +6482,7 @@
           "includeVisibilitySuffix": true,
           "metersCutoff": 5000,
           "template": {
-            "text": "{visibility}",
+            "text": "VIS {visibility}",
             "voice": "VISIBILITY {visibility}.."
           }
         },
@@ -8303,7 +8303,7 @@
           "usePlusPrefix": false,
           "speakLeadingZero": true,
           "template": {
-            "text": "T{temp}",
+            "text": "TEMPERATURE {temp}",
             "voice": "TEMPERATURE {temp}.."
           }
         },
@@ -8311,14 +8311,14 @@
           "usePlusPrefix": false,
           "speakLeadingZero": true,
           "template": {
-            "text": "DP{dewpoint}..",
+            "text": "DEWPOINT {dewpoint}",
             "voice": "DEWPOINT {dewpoint}.."
           }
         },
         "altimeter": {
           "pronounceDecimal": false,
           "template": {
-            "text": "QNH{altimeter}",
+            "text": "QNH {altimeter} HPA",
             "voice": "QNH {altimeter} HECTOPASCALS.."
           }
         },
@@ -8347,7 +8347,7 @@
             }
           ],
           "template": {
-            "text": "TL{trl}",
+            "text": "TRANSITION LEVEL {trl}",
             "voice": "TRANSITION LEVEL {trl}.."
           }
         },
@@ -8377,11 +8377,11 @@
       },
       "presets": [
         {
-          "id": "9409dd7a-2de2-5472-8196-b94aa9195b3a",
+          "id": "b62528b0-0911-592c-b62c-cc4e3ab07b72",
           "name": "08",
           "airportConditions": "",
           "notams": "",
-          "template": "NAMANGAN ATIS INFO [ATIS_CODE].. [OBS_TIME].. EXPECT RNP APP RWY 08.. DEP RWY 08.. [FULL_WX_STRING].. [TL].. TORA FROM TWY A 3000 M.. ON INITIAL CTC REPORT STAND AND READINESS..",
+          "template": "NAMANGAN ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08. EXPECT RNP APPROACH.\nDEP RWY 08.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY A 3000 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -8393,11 +8393,11 @@
           }
         },
         {
-          "id": "76ad4017-3579-5b11-afe6-5e959cd62fa7",
+          "id": "5b547a47-66b4-560b-95bc-8338a9d235f8",
           "name": "26",
           "airportConditions": "",
           "notams": "",
-          "template": "NAMANGAN ATIS INFO [ATIS_CODE].. [OBS_TIME].. EXPECT RNP APP RWY 26.. DEP RWY 26.. [FULL_WX_STRING].. [TL].. TORA FROM TWY B 3000 M.. ON INITIAL CTC REPORT STAND AND READINESS..",
+          "template": "NAMANGAN ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26. EXPECT RNP APPROACH.\nDEP RWY 26.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY B 3000 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",

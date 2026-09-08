@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the vATIS profile for Uzbekistan (UTTT / UTSS / UTFF / UTNN).
+"""Generate the vATIS profile for Uzbekistan (UZTT / UZSS / UZFF / UZNN).
 
 The ATIS format block (metric visibility, QNH in hPa) is taken from the UNNT
 reference profile, since Uzbekistan uses the same ICAO/CIS-style ATIS
@@ -12,10 +12,12 @@ phraseology. Two blocks are overridden:
 
 The same 2 October 2025 change replaced the Soviet-era UT location indicator
 prefix with UZ (the former UTTT becoming UZTT and so on, last two letters
-retained). vATIS does not recognise the UZ identifiers yet, so stations keep
-their legacy UT identifiers -- that is the code vATIS looks the aerodrome up
-by. The new code is recorded per airport as `icao` for reference only. VATSIM
-controller callsigns are unaffected by this and use the UZ form.
+retained). Stations use the new UZ identifiers; the legacy UT code is recorded
+per airport as `legacy_icao` for reference only.
+
+The ATIS text is laid out one element per line rather than as a single
+paragraph, so the individual weather variables are used instead of
+[FULL_WX_STRING].
 """
 
 import copy
@@ -30,6 +32,18 @@ OUTPUT = REPO / "profiles" / "vATIS_Profile_Uzbekistan.json"
 
 # Deterministic ids so regenerating the profile does not churn the diff.
 NS = uuid.UUID("6f1f6d5c-0a3c-5f4e-9b7a-2f0b7c1d4e55")
+
+
+# The report is rendered one element per line, so each line has to name what it
+# is. The reference profile's METAR-style text fragments (T16, QNH1006) are
+# replaced with spelled-out text matching how the element is spoken.
+TEXT_TEMPLATE_OVERRIDES = {
+    "observationTime": "{time}Z",
+    "visibility": "VIS {visibility}",
+    "temperature": "TEMPERATURE {temp}",
+    "dewpoint": "DEWPOINT {dewpoint}",
+    "altimeter": "QNH {altimeter} HPA",
+}
 
 
 def det_id(*parts):
@@ -83,9 +97,8 @@ def position(callsign):
 # and the controller positions that work the field.
 AIRPORTS = [
     {
-        # vATIS still requires the legacy identifier; new code: UZTT.
-        "identifier": "UTTT",
-        "icao": "UZTT",
+        "identifier": "UZTT",
+        "legacy_icao": "UTTT",
         "name": "Tashkent",
         "spoken": "TASHKENT ISLAM KARIMOV",
         "frequency": 127000000,
@@ -108,9 +121,8 @@ AIRPORTS = [
         "combos": [("08L", "08R"), ("26R", "26L")],
     },
     {
-        # vATIS still requires the legacy identifier; new code: UZSS.
-        "identifier": "UTSS",
-        "icao": "UZSS",
+        "identifier": "UZSS",
+        "legacy_icao": "UTSS",
         "name": "Samarkand",
         "spoken": "SAMARKAND",
         "frequency": 127200000,
@@ -124,9 +136,8 @@ AIRPORTS = [
         "combos": [],
     },
     {
-        # vATIS still requires the legacy identifier; new code: UZFF.
-        "identifier": "UTFF",
-        "icao": "UZFF",
+        "identifier": "UZFF",
+        "legacy_icao": "UTFF",
         "name": "Fergana",
         "spoken": "FERGANA",
         "frequency": 127400000,
@@ -140,9 +151,8 @@ AIRPORTS = [
         "combos": [],
     },
     {
-        # vATIS still requires the legacy identifier; new code: UZNN.
-        "identifier": "UTNN",
-        "icao": "UZNN",
+        "identifier": "UZNN",
+        "legacy_icao": "UTNN",
         "name": "Namangan",
         "spoken": "NAMANGAN",
         "frequency": 127600000,
@@ -163,37 +173,37 @@ SURFACE_WIND_KNOTS = {
     "speakLeadingZero": False,
     "standard": {
         "template": {
-            "text": "{wind_dir}{wind_spd}KT",
+            "text": "WIND {wind_dir} DEGREES {wind_spd} KT",
             "voice": "WIND {wind_dir} DEGREES {wind_spd} KNOTS..",
         }
     },
     "standardGust": {
         "template": {
-            "text": "{wind_dir}{wind_spd}G{wind_gust}KT",
+            "text": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KT",
             "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KNOTS..",
         }
     },
     "variable": {
         "template": {
-            "text": "VRB{wind_spd}KT",
+            "text": "WIND VARIABLE {wind_spd} KT",
             "voice": "WIND VARIABLE {wind_spd} KNOTS..",
         }
     },
     "variableGust": {
         "template": {
-            "text": "VRB{wind_spd}G{wind_gust}KT",
+            "text": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KT",
             "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KNOTS..",
         }
     },
     "variableDirection": {
         "template": {
-            "text": "{wind_vmin}V{wind_vmax}",
+            "text": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}",
             "voice": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}..",
         }
     },
     "calm": {
         "calmWindSpeed": 0,
-        "template": {"text": "{wind}", "voice": "WIND CALM.."},
+        "template": {"text": "WIND CALM", "voice": "WIND CALM.."},
     },
 }
 
@@ -202,7 +212,7 @@ SURFACE_WIND_KNOTS = {
 TRANSITION_LEVEL_FIXED = {
     "values": [{"low": 0, "high": 1099, "altitude": 150}],
     "template": {
-        "text": "TL{trl}",
+        "text": "TRANSITION LEVEL {trl}",
         "voice": "TRANSITION LEVEL {trl}..",
     },
 }
@@ -224,13 +234,27 @@ def contractions(airport):
 
 
 def template(spoken, arr, dep):
-    return (
-        f"{spoken} ATIS INFO [ATIS_CODE].. [OBS_TIME].. "
-        f"EXPECT {arr['app']} APP RWY {arr['rwy']}.. DEP RWY {dep['rwy']}.. "
-        f"[FULL_WX_STRING].. [TL].. "
-        f"TORA FROM TWY {dep['twy']} {dep['tora']} M.. "
-        f"ON INITIAL CTC REPORT STAND AND READINESS.."
-    )
+    """One ATIS element per line.
+
+    [FULL_WX_STRING] would collapse the whole observation onto a single line,
+    so the individual weather variables are spelled out instead. Visibility and
+    present weather share a line: present weather is empty in fair conditions
+    and would otherwise leave a blank line in the middle of the report.
+    """
+    lines = [
+        f"{spoken} ATIS INFO [ATIS_CODE]. [OBS_TIME].",
+        f"RWY {arr['rwy']}. EXPECT {arr['app']} APPROACH.",
+        f"DEP RWY {dep['rwy']}.",
+        "[TL].",
+        "[WIND].",
+        "[VIS] [PRESENT_WX]",
+        "[CLOUDS]",
+        "[TEMP]. [DEW].",
+        "[PRESSURE].",
+        f"TORA FROM TWY {dep['twy']} {dep['tora']} M.",
+        "ON INITIAL CTC REPORT STAND AND READINESS.",
+    ]
+    return "\n".join(lines)
 
 
 def presets(airport):
@@ -270,6 +294,10 @@ def build_station(airport, atis_format):
         "magneticDegrees": airport["magvar"],
     }
     fmt["transitionLevel"] = copy.deepcopy(TRANSITION_LEVEL_FIXED)
+    for element, text in TEXT_TEMPLATE_OVERRIDES.items():
+        fmt[element]["template"]["text"] = text
+    # Inherited stray dots that would show up mid-line in a column layout.
+    fmt["dewpoint"]["template"]["text"] = fmt["dewpoint"]["template"]["text"].rstrip(".")
     return {
         "id": det_id(airport["identifier"], "station"),
         "ordinal": 0,

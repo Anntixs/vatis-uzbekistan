@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Generate the vATIS profile for Uzbekistan (UTTT / UTSS / UTFF / UTNN).
 
-The ATIS format block (wind in MPS, metric visibility, QNH in hPa, metric
-transition levels) is taken from the UNNT reference profile, since Uzbekistan
-uses the same ICAO/CIS-style ATIS phraseology.
+The ATIS format block (metric visibility, QNH in hPa, metric transition
+levels) is taken from the UNNT reference profile, since Uzbekistan uses the
+same ICAO/CIS-style ATIS phraseology. The surface wind block is overridden:
+Uzbekistan reports wind in knots, not metres per second.
 """
 
 import copy
@@ -117,6 +118,46 @@ AIRPORTS = [
     },
 ]
 
+# Uzbekistan reports surface wind in knots, so the MPS templates inherited from
+# the reference profile are replaced wholesale.
+SURFACE_WIND_KNOTS = {
+    "speakLeadingZero": False,
+    "standard": {
+        "template": {
+            "text": "{wind_dir}{wind_spd}KT",
+            "voice": "WIND {wind_dir} DEGREES {wind_spd} KNOTS..",
+        }
+    },
+    "standardGust": {
+        "template": {
+            "text": "{wind_dir}{wind_spd}G{wind_gust}KT",
+            "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KNOTS..",
+        }
+    },
+    "variable": {
+        "template": {
+            "text": "VRB{wind_spd}KT",
+            "voice": "WIND VARIABLE {wind_spd} KNOTS..",
+        }
+    },
+    "variableGust": {
+        "template": {
+            "text": "VRB{wind_spd}G{wind_gust}KT",
+            "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KNOTS..",
+        }
+    },
+    "variableDirection": {
+        "template": {
+            "text": "{wind_vmin}V{wind_vmax}",
+            "voice": "WIND VARIABLE BETWEEN {wind_vmin} AND {wind_vmax}..",
+        }
+    },
+    "calm": {
+        "calmWindSpeed": 0,
+        "template": {"text": "{wind}", "voice": "WIND CALM.."},
+    },
+}
+
 EXT_GENERATOR = {
     "enabled": False,
     "textUrl": "",
@@ -174,6 +215,7 @@ def presets(airport):
 
 def build_station(airport, atis_format):
     fmt = copy.deepcopy(atis_format)
+    fmt["surfaceWind"] = copy.deepcopy(SURFACE_WIND_KNOTS)
     fmt["surfaceWind"]["magneticVariation"] = {
         "enabled": True,
         "magneticDegrees": airport["magvar"],

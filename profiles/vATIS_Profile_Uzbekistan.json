@@ -21,32 +21,28 @@
         },
         "surfaceWind": {
           "speakLeadingZero": false,
-          "magneticVariation": {
-            "enabled": true,
-            "magneticDegrees": -5
-          },
           "standard": {
             "template": {
-              "text": "{wind_dir}{wind_spd}MPS",
-              "voice": "WIND {wind_dir} DEGREES {wind_spd} METRES PER SECOND.."
+              "text": "{wind_dir}{wind_spd}KT",
+              "voice": "WIND {wind_dir} DEGREES {wind_spd} KNOTS.."
             }
           },
           "standardGust": {
             "template": {
-              "text": "{wind_dir}{wind_spd}G{wind_gust}MPS",
-              "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} METERS PER SECOND.."
+              "text": "{wind_dir}{wind_spd}G{wind_gust}KT",
+              "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variable": {
             "template": {
-              "text": "VARIABLE {wind_spd} {wind_unit}",
-              "voice": "WIND VARIABLE {wind_spd} {wind_unit}.."
+              "text": "VRB{wind_spd}KT",
+              "voice": "WIND VARIABLE {wind_spd} KNOTS.."
             }
           },
           "variableGust": {
             "template": {
-              "text": "VRB{wind_spd}G{wind_gust}MPS",
-              "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} METERS PER SECOND.."
+              "text": "VRB{wind_spd}G{wind_gust}KT",
+              "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variableDirection": {
@@ -61,6 +57,10 @@
               "text": "{wind}",
               "voice": "WIND CALM.."
             }
+          },
+          "magneticVariation": {
+            "enabled": true,
+            "magneticDegrees": -5
           }
         },
         "visibility": {
@@ -2202,32 +2202,28 @@
         },
         "surfaceWind": {
           "speakLeadingZero": false,
-          "magneticVariation": {
-            "enabled": true,
-            "magneticDegrees": -5
-          },
           "standard": {
             "template": {
-              "text": "{wind_dir}{wind_spd}MPS",
-              "voice": "WIND {wind_dir} DEGREES {wind_spd} METRES PER SECOND.."
+              "text": "{wind_dir}{wind_spd}KT",
+              "voice": "WIND {wind_dir} DEGREES {wind_spd} KNOTS.."
             }
           },
           "standardGust": {
             "template": {
-              "text": "{wind_dir}{wind_spd}G{wind_gust}MPS",
-              "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} METERS PER SECOND.."
+              "text": "{wind_dir}{wind_spd}G{wind_gust}KT",
+              "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variable": {
             "template": {
-              "text": "VARIABLE {wind_spd} {wind_unit}",
-              "voice": "WIND VARIABLE {wind_spd} {wind_unit}.."
+              "text": "VRB{wind_spd}KT",
+              "voice": "WIND VARIABLE {wind_spd} KNOTS.."
             }
           },
           "variableGust": {
             "template": {
-              "text": "VRB{wind_spd}G{wind_gust}MPS",
-              "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} METERS PER SECOND.."
+              "text": "VRB{wind_spd}G{wind_gust}KT",
+              "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variableDirection": {
@@ -2242,6 +2238,10 @@
               "text": "{wind}",
               "voice": "WIND CALM.."
             }
+          },
+          "magneticVariation": {
+            "enabled": true,
+            "magneticDegrees": -5
           }
         },
         "visibility": {
@@ -4319,32 +4319,28 @@
         },
         "surfaceWind": {
           "speakLeadingZero": false,
-          "magneticVariation": {
-            "enabled": true,
-            "magneticDegrees": -5
-          },
           "standard": {
             "template": {
-              "text": "{wind_dir}{wind_spd}MPS",
-              "voice": "WIND {wind_dir} DEGREES {wind_spd} METRES PER SECOND.."
+              "text": "{wind_dir}{wind_spd}KT",
+              "voice": "WIND {wind_dir} DEGREES {wind_spd} KNOTS.."
             }
           },
           "standardGust": {
             "template": {
-              "text": "{wind_dir}{wind_spd}G{wind_gust}MPS",
-              "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} METERS PER SECOND.."
+              "text": "{wind_dir}{wind_spd}G{wind_gust}KT",
+              "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variable": {
             "template": {
-              "text": "VARIABLE {wind_spd} {wind_unit}",
-              "voice": "WIND VARIABLE {wind_spd} {wind_unit}.."
+              "text": "VRB{wind_spd}KT",
+              "voice": "WIND VARIABLE {wind_spd} KNOTS.."
             }
           },
           "variableGust": {
             "template": {
-              "text": "VRB{wind_spd}G{wind_gust}MPS",
-              "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} METERS PER SECOND.."
+              "text": "VRB{wind_spd}G{wind_gust}KT",
+              "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variableDirection": {
@@ -4359,6 +4355,10 @@
               "text": "{wind}",
               "voice": "WIND CALM.."
             }
+          },
+          "magneticVariation": {
+            "enabled": true,
+            "magneticDegrees": -5
           }
         },
         "visibility": {
@@ -6436,32 +6436,28 @@
         },
         "surfaceWind": {
           "speakLeadingZero": false,
-          "magneticVariation": {
-            "enabled": true,
-            "magneticDegrees": -5
-          },
           "standard": {
             "template": {
-              "text": "{wind_dir}{wind_spd}MPS",
-              "voice": "WIND {wind_dir} DEGREES {wind_spd} METRES PER SECOND.."
+              "text": "{wind_dir}{wind_spd}KT",
+              "voice": "WIND {wind_dir} DEGREES {wind_spd} KNOTS.."
             }
           },
           "standardGust": {
             "template": {
-              "text": "{wind_dir}{wind_spd}G{wind_gust}MPS",
-              "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} METERS PER SECOND.."
+              "text": "{wind_dir}{wind_spd}G{wind_gust}KT",
+              "voice": "WIND {wind_dir} DEGREES {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variable": {
             "template": {
-              "text": "VARIABLE {wind_spd} {wind_unit}",
-              "voice": "WIND VARIABLE {wind_spd} {wind_unit}.."
+              "text": "VRB{wind_spd}KT",
+              "voice": "WIND VARIABLE {wind_spd} KNOTS.."
             }
           },
           "variableGust": {
             "template": {
-              "text": "VRB{wind_spd}G{wind_gust}MPS",
-              "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} METERS PER SECOND.."
+              "text": "VRB{wind_spd}G{wind_gust}KT",
+              "voice": "WIND VARIABLE {wind_spd} GUSTS {wind_gust} KNOTS.."
             }
           },
           "variableDirection": {
@@ -6476,6 +6472,10 @@
               "text": "{wind}",
               "voice": "WIND CALM.."
             }
+          },
+          "magneticVariation": {
+            "enabled": true,
+            "magneticDegrees": -5
           }
         },
         "visibility": {

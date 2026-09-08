@@ -1976,7 +1976,7 @@
           "name": "08L",
           "airportConditions": "",
           "notams": "",
-          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08L. EXPECT ILS APPROACH.\nDEP RWY 08L.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY A 4000 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
+          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08L. EXPECT ILS APPROACH.\nDEP RWY 08L.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nON INITIAL CTC REPORT STAND AND READINESS.\n",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -1992,7 +1992,7 @@
           "name": "26R",
           "airportConditions": "",
           "notams": "",
-          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26R. EXPECT ILS APPROACH.\nDEP RWY 26R.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY D 4000 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
+          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26R. EXPECT ILS APPROACH.\nDEP RWY 26R.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nON INITIAL CTC REPORT STAND AND READINESS.\n",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2008,7 +2008,7 @@
           "name": "08R",
           "airportConditions": "",
           "notams": "",
-          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08R. EXPECT RNP APPROACH.\nDEP RWY 08R.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY B 3800 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
+          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08R. EXPECT RNP APPROACH.\nDEP RWY 08R.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nON INITIAL CTC REPORT STAND AND READINESS.\n",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2024,7 +2024,7 @@
           "name": "26L",
           "airportConditions": "",
           "notams": "",
-          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26L. EXPECT RNP APPROACH.\nDEP RWY 26L.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY E 3800 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
+          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26L. EXPECT RNP APPROACH.\nDEP RWY 26L.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nON INITIAL CTC REPORT STAND AND READINESS.\n",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2040,7 +2040,7 @@
           "name": "08L+08R",
           "airportConditions": "",
           "notams": "",
-          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08L. EXPECT ILS APPROACH.\nDEP RWY 08R.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY B 3800 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
+          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08L. EXPECT ILS APPROACH.\nDEP RWY 08R.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nON INITIAL CTC REPORT STAND AND READINESS.\n",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -2056,7 +2056,7 @@
           "name": "26R+26L",
           "airportConditions": "",
           "notams": "",
-          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26R. EXPECT ILS APPROACH.\nDEP RWY 26L.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY E 3800 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
+          "template": "TASHKENT ISLAM KARIMOV ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26R. EXPECT ILS APPROACH.\nDEP RWY 26L.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nON INITIAL CTC REPORT STAND AND READINESS.\n",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -4167,7 +4167,7 @@
           "name": "09",
           "airportConditions": "",
           "notams": "",
-          "template": "SAMARKAND ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 09. EXPECT ILS APPROACH.\nDEP RWY 09.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY A 3100 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
+          "template": "SAMARKAND ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 09. EXPECT ILS APPROACH.\nDEP RWY 09.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nON INITIAL CTC REPORT STAND AND READINESS.\n",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -4183,7 +4183,7 @@
           "name": "27",
           "airportConditions": "",
           "notams": "",
-          "template": "SAMARKAND ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 27. EXPECT RNP APPROACH.\nDEP RWY 27.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY C 3100 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
+          "template": "SAMARKAND ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 27. EXPECT RNP APPROACH.\nDEP RWY 27.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nON INITIAL CTC REPORT STAND AND READINESS.\n",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -6274,7 +6274,7 @@
           "name": "08",
           "airportConditions": "",
           "notams": "",
-          "template": "FERGANA ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08. EXPECT RNP APPROACH.\nDEP RWY 08.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY A 2700 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
+          "template": "FERGANA ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08. EXPECT RNP APPROACH.\nDEP RWY 08.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nON INITIAL CTC REPORT STAND AND READINESS.\n",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -6290,7 +6290,7 @@
           "name": "26",
           "airportConditions": "",
           "notams": "",
-          "template": "FERGANA ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26. EXPECT ILS APPROACH.\nDEP RWY 26.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY B 2700 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
+          "template": "FERGANA ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26. EXPECT ILS APPROACH.\nDEP RWY 26.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nON INITIAL CTC REPORT STAND AND READINESS.\n",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -8381,7 +8381,7 @@
           "name": "08",
           "airportConditions": "",
           "notams": "",
-          "template": "NAMANGAN ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08. EXPECT RNP APPROACH.\nDEP RWY 08.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY A 3000 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
+          "template": "NAMANGAN ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 08. EXPECT RNP APPROACH.\nDEP RWY 08.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nON INITIAL CTC REPORT STAND AND READINESS.\n",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",
@@ -8397,7 +8397,7 @@
           "name": "26",
           "airportConditions": "",
           "notams": "",
-          "template": "NAMANGAN ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26. EXPECT RNP APPROACH.\nDEP RWY 26.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nTORA FROM TWY B 3000 M.\nON INITIAL CTC REPORT STAND AND READINESS.",
+          "template": "NAMANGAN ATIS INFO [ATIS_CODE]. [OBS_TIME].\nRWY 26. EXPECT RNP APPROACH.\nDEP RWY 26.\n[TL].\n[WIND].\n[VIS] [PRESENT_WX]\n[CLOUDS]\n[TEMP]. [DEW].\n[PRESSURE].\nON INITIAL CTC REPORT STAND AND READINESS.\n",
           "externalGenerator": {
             "enabled": false,
             "textUrl": "",

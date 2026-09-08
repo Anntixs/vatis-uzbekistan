@@ -92,9 +92,13 @@ def position(callsign):
     return (callsign.replace("-", "_"), callsign, f"{spoken} ON {freq}")
 
 
-# identifier, city name, spoken facility name, ATIS frequency (Hz),
-# magnetic variation (negative = East), taxiway/TORA data per runway,
-# and the controller positions that work the field.
+# identifier, city name, spoken facility name, ATIS frequency (Hz), magnetic
+# variation (negative = East), runways and the controller positions that work
+# the field.
+#
+# "length" is the published runway length, recorded for reference. It is NOT
+# emitted as a TORA: declared distances and taxiway designators have to come
+# from the AIP, and they are not in this file yet -- see README.
 AIRPORTS = [
     {
         "identifier": "UZTT",
@@ -112,10 +116,10 @@ AIRPORTS = [
             "RU-CEN_FSS",
         ],
         "runways": [
-            {"rwy": "08L", "app": "ILS", "twy": "A", "tora": 4000},
-            {"rwy": "26R", "app": "ILS", "twy": "D", "tora": 4000},
-            {"rwy": "08R", "app": "RNP", "twy": "B", "tora": 3800},
-            {"rwy": "26L", "app": "RNP", "twy": "E", "tora": 3800},
+            {"rwy": "08L", "app": "ILS", "length": 4000},
+            {"rwy": "26R", "app": "ILS", "length": 4000},
+            {"rwy": "08R", "app": "RNP", "length": 3905},
+            {"rwy": "26L", "app": "RNP", "length": 3905},
         ],
         # Parallel-runway combinations that are actually usable at Tashkent.
         "combos": [("08L", "08R"), ("26R", "26L")],
@@ -130,8 +134,8 @@ AIRPORTS = [
         # No dedicated Samarkand positions are published; worked top-down.
         "positions": ["UZTR_CTR", "RU-CEN_FSS"],
         "runways": [
-            {"rwy": "09", "app": "ILS", "twy": "A", "tora": 3100},
-            {"rwy": "27", "app": "RNP", "twy": "C", "tora": 3100},
+            {"rwy": "09", "app": "ILS", "length": 3100},
+            {"rwy": "27", "app": "RNP", "length": 3100},
         ],
         "combos": [],
     },
@@ -145,8 +149,8 @@ AIRPORTS = [
         # No dedicated Fergana positions are published; worked top-down.
         "positions": ["UZTR_CTR", "RU-CEN_FSS"],
         "runways": [
-            {"rwy": "08", "app": "RNP", "twy": "A", "tora": 2700},
-            {"rwy": "26", "app": "ILS", "twy": "B", "tora": 2700},
+            {"rwy": "08", "app": "RNP", "length": 2700},
+            {"rwy": "26", "app": "ILS", "length": 2700},
         ],
         "combos": [],
     },
@@ -160,8 +164,8 @@ AIRPORTS = [
         # No dedicated Namangan positions are published; worked top-down.
         "positions": ["UZTR_CTR", "RU-CEN_FSS"],
         "runways": [
-            {"rwy": "08", "app": "RNP", "twy": "A", "tora": 3000},
-            {"rwy": "26", "app": "RNP", "twy": "B", "tora": 3000},
+            {"rwy": "08", "app": "RNP", "length": 3000},
+            {"rwy": "26", "app": "RNP", "length": 3000},
         ],
         "combos": [],
     },
@@ -251,10 +255,11 @@ def template(spoken, arr, dep):
         "[CLOUDS]",
         "[TEMP]. [DEW].",
         "[PRESSURE].",
-        f"TORA FROM TWY {dep['twy']} {dep['tora']} M.",
         "ON INITIAL CTC REPORT STAND AND READINESS.",
     ]
-    return "\n".join(lines)
+    # Trailing newline: vATIS appends the closing statement directly to the
+    # template, which would otherwise run into the last line.
+    return "\n".join(lines) + "\n"
 
 
 def presets(airport):

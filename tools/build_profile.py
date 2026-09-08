@@ -96,17 +96,24 @@ def position(callsign):
 # variation (negative = East), runways and the controller positions that work
 # the field.
 #
-# "length" is the published runway length, recorded for reference. It is NOT
-# emitted as a TORA: declared distances and taxiway designators have to come
-# from the AIP, and they are not in this file yet -- see README.
+# Tashkent data is taken from AIP Uzbekistan, UZTT AD 2.24-1.0 / 1.0-1
+# (Aerodrome Chart - ICAO, AIRAC AMDT 03/26, 14 MAY 26): declared distances,
+# the taxiway table and the ATS frequency box. "tora" is the full-length TORA
+# from the threshold; "intersections" are the published intersection-departure
+# TORAs, in the order the chart lists them.
+#
+# The other three aerodromes have no chart on file, so their runway lengths are
+# from open sources and no declared distances are published for them.
 AIRPORTS = [
     {
         "identifier": "UZTT",
         "legacy_icao": "UTTT",
         "name": "Tashkent",
         "spoken": "TASHKENT ISLAM KARIMOV",
-        "frequency": 127000000,
-        "magvar": -5,
+        # AIP: ATIS 126.8.
+        "frequency": 126800000,
+        # AIP: VAR 5 degrees 38 minutes E (2025).
+        "magvar": -6,
         "positions": [
             "UZTT_DEL",
             "UZTT_GND",
@@ -116,13 +123,23 @@ AIRPORTS = [
             "RU-CEN_FSS",
         ],
         "runways": [
-            {"rwy": "08L", "app": "ILS", "length": 4000},
-            {"rwy": "26R", "app": "ILS", "length": 4000},
-            {"rwy": "08R", "app": "RNP", "length": 3905},
-            {"rwy": "26L", "app": "RNP", "length": 3905},
+            # 08L/26R: HIALS CAT II / CAT I. 08R: HIALS CAT I. 26L has MIALS
+            # 420 m only, so it is flown as a non-precision approach.
+            {"rwy": "08L", "app": "ILS", "length": 4000, "tora": 4000,
+             "intersections": [("TWY 2", 3460), ("TWY 3", 2425)]},
+            {"rwy": "26R", "app": "ILS", "length": 4000, "tora": 4000,
+             "intersections": [("TWY 4", 2725), ("TWY 3", 1200)]},
+            {"rwy": "08R", "app": "ILS", "length": 3905, "tora": 3755,
+             "intersections": [("TWY 12", 3075), ("TWY 8", 2520),
+                               ("TWY 13", 2100)]},
+            {"rwy": "26L", "app": "RNP", "length": 3905, "tora": 3905,
+             "intersections": [("TWY 14", 2350), ("TWY 13", 1300)]},
         ],
         # Parallel-runway combinations that are actually usable at Tashkent.
         "combos": [("08L", "08R"), ("26R", "26L")],
+        # AIP note on the chart.
+        "note": "DEPARTING ACFT CTC [UZTT_DEL] FOR ATC CLEARANCE "
+                "NOT EARLIER THAN 15 MIN BEFORE START-UP.",
     },
     {
         "identifier": "UZSS",
@@ -237,7 +254,7 @@ def contractions(airport):
     return [{"variableName": v, "text": t, "voice": s} for v, t, s in rows]
 
 
-def template(spoken, arr, dep):
+def template(spoken, arr, dep, note=None):
     """One ATIS element per line.
 
     [FULL_WX_STRING] would collapse the whole observation onto a single line,
@@ -255,8 +272,15 @@ def template(spoken, arr, dep):
         "[CLOUDS]",
         "[TEMP]. [DEW].",
         "[PRESSURE].",
-        "ON INITIAL CTC REPORT STAND AND READINESS.",
     ]
+    if dep.get("tora"):
+        lines.append(f"TORA RWY {dep['rwy']} {dep['tora']} M.")
+    if dep.get("intersections"):
+        parts = ", ".join(f"FROM {twy} {tora} M" for twy, tora in dep["intersections"])
+        lines.append(f"INTERSECTION DEPARTURE TORA {parts}.")
+    if note:
+        lines.append(note)
+    lines.append("ON INITIAL CTC REPORT STAND AND READINESS.")
     # Trailing newline: vATIS appends the closing statement directly to the
     # template, which would otherwise run into the last line.
     return "\n".join(lines) + "\n"
@@ -272,7 +296,7 @@ def presets(airport):
                 "name": rwy["rwy"],
                 "airportConditions": "",
                 "notams": "",
-                "template": template(airport["spoken"], rwy, rwy),
+                "template": template(airport["spoken"], rwy, rwy, airport.get("note")),
                 "externalGenerator": copy.deepcopy(EXT_GENERATOR),
             }
         )
@@ -284,7 +308,10 @@ def presets(airport):
                 "name": name,
                 "airportConditions": "",
                 "notams": "",
-                "template": template(airport["spoken"], by_rwy[arr], by_rwy[dep]),
+                "template": template(
+                    airport["spoken"], by_rwy[arr], by_rwy[dep],
+                    airport.get("note"),
+                ),
                 "externalGenerator": copy.deepcopy(EXT_GENERATOR),
             }
         )

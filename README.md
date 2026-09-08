@@ -13,7 +13,7 @@
 
 | ICAO | Аэропорт | ATIS | ВПП | Пресеты |
 |------|----------|------|-----|---------|
-| UZTT | Ташкент (Islam Karimov Intl) | 127.000 | 08L/26R, 08R/26L | 08L, 26R, 08R, 26L, 08L+08R, 26R+26L |
+| UZTT | Ташкент (Islam Karimov Intl) | 126.800 | 08L/26R, 08R/26L | 08L, 26R, 08R, 26L, 08L+08R, 26R+26L |
 | UZSS | Самарканд | 127.200 | 09/27 | 09, 27 |
 | UZFF | Фергана | 127.400 | 08/26 | 08, 26 |
 | UZNN | Наманган | 127.600 | 08/26 | 08, 26 |
@@ -42,6 +42,9 @@ VIS 10KM
 BKN030
 TEMPERATURE 16. DEWPOINT 10.
 QNH 1006 HPA.
+TORA RWY 08L 4000 M.
+INTERSECTION DEPARTURE TORA FROM TWY 2 3460 M, FROM TWY 3 2425 M.
+DEPARTING ACFT CTC UZTT_DEL FOR ATC CLEARANCE NOT EARLIER THAN 15 MIN BEFORE START-UP.
 ON INITIAL CTC REPORT STAND AND READINESS.
 ACKNOWLEDGE ATIS INFORMATION B
 ```
@@ -71,6 +74,35 @@ ACKNOWLEDGE ATIS INFORMATION B
 Ташкентский РПИ). Позиции заданы в `ATC_POSITIONS` в генераторе и попадают в
 контракции станций, поэтому в шаблонах пресетов их можно подставлять как
 `[UZTT_APP]`, `[UZTR_CTR]` и т. д.
+
+## Ташкент (UZTT) по AIP
+
+Частоты с карты: Delivery 129.4, Ground 121.7, Tower 120.4, **ATIS 126.8**,
+VOLMET 113.2, TRANZIT 131.8. Склонение VAR 5°38′E (2025).
+
+### Рулёжные дорожки
+
+Нумерованные: **TWY 1, 2, 2A, 3, 4, 5, 6, 7, 8, 9, 9A, 11, 12, 13, 14, 15**
+(TWY 10 на карте отсутствует).
+
+Буквенные: **MAIN TWY** (от TWY 2 до МС B10 и от МС B10 до TWY 6),
+**TWY B** (между МС B8 и B17), **TWY H** (между МС H43–H46 и H46–H57),
+**TWY H1**.
+
+Ширина 22.5 м у большинства, 23 м у TWY 3, 9, 9A, MAIN TWY, B, H, H1.
+
+### Располагаемые дистанции (TORA, м)
+
+| ВПП | От порога | С РД |
+|-----|-----------|------|
+| 08L | 4000 | TWY 2 — 3460, TWY 3 — 2425 |
+| 26R | 4000 | TWY 4 — 2725, TWY 3 — 1200 |
+| 08R | 3755 | TWY 12 — 3075, TWY 8 — 2520, TWY 13 — 2100 |
+| 26L | 3905 | TWY 14 — 2350, TWY 13 — 1300 |
+
+ВПП 08L/26R — 4000×60, 08R/26L — 3905×45, обе асфальтобетон.
+Заход: 08L — HIALS CAT II, 26R и 08R — HIALS CAT I, 26L — только MIALS 420 м,
+поэтому в пресете 26L стоит неточный заход, а не ILS.
 
 ## Файлы
 

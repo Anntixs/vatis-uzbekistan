@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
-"""Generate the vATIS profile for Uzbekistan (UTTT / UTSS / UTFF / UTNN).
+"""Generate the vATIS profile for Uzbekistan (UZTT / UZSS / UZFF / UZNN).
 
-The ATIS format block (metric visibility, QNH in hPa, metric transition
-levels) is taken from the UNNT reference profile, since Uzbekistan uses the
-same ICAO/CIS-style ATIS phraseology. The surface wind block is overridden:
-Uzbekistan reports wind in knots, not metres per second.
+The ATIS format block (metric visibility, QNH in hPa) is taken from the UNNT
+reference profile, since Uzbekistan uses the same ICAO/CIS-style ATIS
+phraseology. Two blocks are overridden:
+
+- surface wind is reported in knots, not metres per second;
+- since 2 October 2025 Uzbekistan uses a unified transition altitude of
+  13000 ft with a fixed transition level of FL150, replacing the metric,
+  QNH-dependent transition level table of the reference profile.
+
+The same 2 October 2025 change replaced the Soviet-era UT location indicator
+prefix with UZ (the former UTTT becoming UZTT and so on, last two letters retained).
 """
 
 import copy
@@ -50,14 +57,14 @@ COMMON_CONTRACTIONS = [
 # magnetic variation (negative = East), taxiway/TORA data per runway.
 AIRPORTS = [
     {
-        "identifier": "UTTT",
+        "identifier": "UZTT",
         "name": "Tashkent",
         "spoken": "TASHKENT ISLAM KARIMOV",
         "frequency": 127000000,
         "magvar": -5,
         "extra_contractions": [
-            ("UTTT_APP", "UTTT_APP", "TASHKENT APPROACH ON 124.000"),
-            ("UTTT_CTR", "UTTT_CTR", "TASHKENT CONTROL ON 133.400"),
+            ("UZTT_APP", "UZTT_APP", "TASHKENT APPROACH ON 124.000"),
+            ("UZTT_CTR", "UZTT_CTR", "TASHKENT CONTROL ON 133.400"),
         ],
         "runways": [
             {"rwy": "08L", "app": "ILS", "twy": "A", "tora": 4000},
@@ -65,18 +72,18 @@ AIRPORTS = [
             {"rwy": "08R", "app": "RNP", "twy": "B", "tora": 3800},
             {"rwy": "26L", "app": "RNP", "twy": "E", "tora": 3800},
         ],
-        # Parallel-runway combinations that are actually usable at UTTT.
+        # Parallel-runway combinations that are actually usable at UZTT.
         "combos": [("08L", "08R"), ("26R", "26L")],
     },
     {
-        "identifier": "UTSS",
+        "identifier": "UZSS",
         "name": "Samarkand",
         "spoken": "SAMARKAND",
         "frequency": 127200000,
         "magvar": -5,
         "extra_contractions": [
-            ("UTSS_APP", "UTSS_APP", "SAMARKAND APPROACH ON 121.200"),
-            ("UTTT_CTR", "UTTT_CTR", "TASHKENT CONTROL ON 133.400"),
+            ("UZSS_APP", "UZSS_APP", "SAMARKAND APPROACH ON 121.200"),
+            ("UZTT_CTR", "UZTT_CTR", "TASHKENT CONTROL ON 133.400"),
         ],
         "runways": [
             {"rwy": "09", "app": "ILS", "twy": "A", "tora": 3100},
@@ -85,14 +92,14 @@ AIRPORTS = [
         "combos": [],
     },
     {
-        "identifier": "UTFF",
+        "identifier": "UZFF",
         "name": "Fergana",
         "spoken": "FERGANA",
         "frequency": 127400000,
         "magvar": -5,
         "extra_contractions": [
-            ("UTFF_APP", "UTFF_APP", "FERGANA APPROACH ON 120.900"),
-            ("UTTT_CTR", "UTTT_CTR", "TASHKENT CONTROL ON 133.400"),
+            ("UZFF_APP", "UZFF_APP", "FERGANA APPROACH ON 120.900"),
+            ("UZTT_CTR", "UZTT_CTR", "TASHKENT CONTROL ON 133.400"),
         ],
         "runways": [
             {"rwy": "08", "app": "RNP", "twy": "A", "tora": 2700},
@@ -101,14 +108,14 @@ AIRPORTS = [
         "combos": [],
     },
     {
-        "identifier": "UTNN",
+        "identifier": "UZNN",
         "name": "Namangan",
         "spoken": "NAMANGAN",
         "frequency": 127600000,
         "magvar": -5,
         "extra_contractions": [
-            ("UTNN_APP", "UTNN_APP", "NAMANGAN APPROACH ON 120.500"),
-            ("UTTT_CTR", "UTTT_CTR", "TASHKENT CONTROL ON 133.400"),
+            ("UZNN_APP", "UZNN_APP", "NAMANGAN APPROACH ON 120.500"),
+            ("UZTT_CTR", "UZTT_CTR", "TASHKENT CONTROL ON 133.400"),
         ],
         "runways": [
             {"rwy": "08", "app": "RNP", "twy": "A", "tora": 3000},
@@ -155,6 +162,16 @@ SURFACE_WIND_KNOTS = {
     "calm": {
         "calmWindSpeed": 0,
         "template": {"text": "{wind}", "voice": "WIND CALM.."},
+    },
+}
+
+# Unified since 2 October 2025: transition altitude 13000 ft, transition level
+# FL150 regardless of QNH (previously 6000 ft / FL080).
+TRANSITION_LEVEL_FIXED = {
+    "values": [{"low": 0, "high": 1099, "altitude": 150}],
+    "template": {
+        "text": "TL{trl}",
+        "voice": "TRANSITION LEVEL {trl}..",
     },
 }
 
@@ -220,6 +237,7 @@ def build_station(airport, atis_format):
         "enabled": True,
         "magneticDegrees": airport["magvar"],
     }
+    fmt["transitionLevel"] = copy.deepcopy(TRANSITION_LEVEL_FIXED)
     return {
         "id": det_id(airport["identifier"], "station"),
         "ordinal": 0,

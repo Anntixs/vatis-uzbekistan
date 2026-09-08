@@ -3,9 +3,9 @@
   "id": "578f01b2-9669-501f-bd24-43cb4aaf17c0",
   "stations": [
     {
-      "id": "cb9038ba-99b3-5591-b915-85f2d7196adb",
+      "id": "6d2a86fd-64d3-5b8c-82f0-2cd04daceed3",
       "ordinal": 0,
-      "identifier": "UZTT",
+      "identifier": "UTTT",
       "name": "Tashkent",
       "atisType": "Combined",
       "codeRange": {
@@ -1972,7 +1972,7 @@
       },
       "presets": [
         {
-          "id": "422c7473-b3b5-5979-ae74-6eabae661946",
+          "id": "4fcf3302-977f-5598-b0b8-1ef16c3d36ba",
           "name": "08L",
           "airportConditions": "",
           "notams": "",
@@ -1988,7 +1988,7 @@
           }
         },
         {
-          "id": "888c3d70-1e95-564d-a2f6-7856612a0f2e",
+          "id": "887b2c64-e6ff-5633-b64e-99237c61ad55",
           "name": "26R",
           "airportConditions": "",
           "notams": "",
@@ -2004,7 +2004,7 @@
           }
         },
         {
-          "id": "60211551-d843-5ddd-aca3-ea40c11258a7",
+          "id": "344edbdd-1bce-520e-87a5-a0f11ec3d3b2",
           "name": "08R",
           "airportConditions": "",
           "notams": "",
@@ -2020,7 +2020,7 @@
           }
         },
         {
-          "id": "29a847cb-920b-5da1-bfc1-94e9b7e9b124",
+          "id": "27d596f5-e30a-5234-9abb-2cc188328379",
           "name": "26L",
           "airportConditions": "",
           "notams": "",
@@ -2036,7 +2036,7 @@
           }
         },
         {
-          "id": "ce2f6230-5919-5b0b-9503-f11759f3a8ea",
+          "id": "bb3fa82b-970a-5169-8a7c-cd2d628aebb3",
           "name": "08L+08R",
           "airportConditions": "",
           "notams": "",
@@ -2052,7 +2052,7 @@
           }
         },
         {
-          "id": "c21798ac-2104-5d96-89ea-3d11dce3c195",
+          "id": "71fb07d7-4f36-5ece-a38f-d86cf03c4c73",
           "name": "26R+26L",
           "airportConditions": "",
           "notams": "",
@@ -2160,23 +2160,43 @@
           "voice": "ECHO"
         },
         {
-          "variableName": "UZTT_APP",
-          "text": "UZTT_APP",
-          "voice": "TASHKENT APPROACH ON 124.000"
+          "variableName": "UZTT_DEL",
+          "text": "UZTT_DEL",
+          "voice": "TASHKENT DELIVERY ON 129.400"
         },
         {
-          "variableName": "UZTT_CTR",
-          "text": "UZTT_CTR",
-          "voice": "TASHKENT CONTROL ON 133.400"
+          "variableName": "UZTT_GND",
+          "text": "UZTT_GND",
+          "voice": "TASHKENT GROUND ON 121.700"
+        },
+        {
+          "variableName": "UZTT_TWR",
+          "text": "UZTT_TWR",
+          "voice": "TASHKENT TOWER ON 120.400"
+        },
+        {
+          "variableName": "UZTT_APP",
+          "text": "UZTT_APP",
+          "voice": "TASHKENT APPROACH ON 119.400"
+        },
+        {
+          "variableName": "UZTR_CTR",
+          "text": "UZTR_CTR",
+          "voice": "TASHKENT CONTROL ON 134.600"
+        },
+        {
+          "variableName": "RU_CEN_FSS",
+          "text": "RU-CEN_FSS",
+          "voice": "ASIA CENTER ON 132.850"
         }
       ],
       "airportConditionDefinitions": [],
       "notamDefinitions": []
     },
     {
-      "id": "3971d3ed-76a2-57a4-8425-b7c37f71744b",
+      "id": "c3483cdd-9cda-5f20-b49b-81e9bf9ee162",
       "ordinal": 0,
-      "identifier": "UZSS",
+      "identifier": "UTSS",
       "name": "Samarkand",
       "atisType": "Combined",
       "codeRange": {
@@ -4143,7 +4163,7 @@
       },
       "presets": [
         {
-          "id": "8c51412e-7ed5-5a51-957b-fe282e36f77e",
+          "id": "e379df9c-c34f-5125-b84d-29d972cb20a5",
           "name": "09",
           "airportConditions": "",
           "notams": "",
@@ -4159,7 +4179,7 @@
           }
         },
         {
-          "id": "29fe8912-57c8-5652-9113-225872b9cb60",
+          "id": "1d858bcc-78c3-51c4-9570-7a683db0ce46",
           "name": "27",
           "airportConditions": "",
           "notams": "",
@@ -4267,23 +4287,23 @@
           "voice": "ECHO"
         },
         {
-          "variableName": "UZSS_APP",
-          "text": "UZSS_APP",
-          "voice": "SAMARKAND APPROACH ON 121.200"
+          "variableName": "UZTR_CTR",
+          "text": "UZTR_CTR",
+          "voice": "TASHKENT CONTROL ON 134.600"
         },
         {
-          "variableName": "UZTT_CTR",
-          "text": "UZTT_CTR",
-          "voice": "TASHKENT CONTROL ON 133.400"
+          "variableName": "RU_CEN_FSS",
+          "text": "RU-CEN_FSS",
+          "voice": "ASIA CENTER ON 132.850"
         }
       ],
       "airportConditionDefinitions": [],
       "notamDefinitions": []
     },
     {
-      "id": "0ed41ab9-1d9a-53c2-9ed9-75aa0fc38fe1",
+      "id": "9688396a-6521-5f61-b7ae-dbed0b583162",
       "ordinal": 0,
-      "identifier": "UZFF",
+      "identifier": "UTFF",
       "name": "Fergana",
       "atisType": "Combined",
       "codeRange": {
@@ -6250,7 +6270,7 @@
       },
       "presets": [
         {
-          "id": "8741c99e-7798-5838-80c5-a4baaa9cedc0",
+          "id": "fae8de86-dc1c-534d-a6c4-63d8424de65a",
           "name": "08",
           "airportConditions": "",
           "notams": "",
@@ -6266,7 +6286,7 @@
           }
         },
         {
-          "id": "86136fa3-e08e-5a0f-b02c-f0806c4aced8",
+          "id": "7cef53b2-0d35-556d-a6aa-e697a859a68d",
           "name": "26",
           "airportConditions": "",
           "notams": "",
@@ -6374,23 +6394,23 @@
           "voice": "ECHO"
         },
         {
-          "variableName": "UZFF_APP",
-          "text": "UZFF_APP",
-          "voice": "FERGANA APPROACH ON 120.900"
+          "variableName": "UZTR_CTR",
+          "text": "UZTR_CTR",
+          "voice": "TASHKENT CONTROL ON 134.600"
         },
         {
-          "variableName": "UZTT_CTR",
-          "text": "UZTT_CTR",
-          "voice": "TASHKENT CONTROL ON 133.400"
+          "variableName": "RU_CEN_FSS",
+          "text": "RU-CEN_FSS",
+          "voice": "ASIA CENTER ON 132.850"
         }
       ],
       "airportConditionDefinitions": [],
       "notamDefinitions": []
     },
     {
-      "id": "4245776f-972c-578d-b766-84f375125113",
+      "id": "ad7a2634-bbf7-5c0e-9b90-448be1fdcadd",
       "ordinal": 0,
-      "identifier": "UZNN",
+      "identifier": "UTNN",
       "name": "Namangan",
       "atisType": "Combined",
       "codeRange": {
@@ -8357,7 +8377,7 @@
       },
       "presets": [
         {
-          "id": "b62528b0-0911-592c-b62c-cc4e3ab07b72",
+          "id": "9409dd7a-2de2-5472-8196-b94aa9195b3a",
           "name": "08",
           "airportConditions": "",
           "notams": "",
@@ -8373,7 +8393,7 @@
           }
         },
         {
-          "id": "5b547a47-66b4-560b-95bc-8338a9d235f8",
+          "id": "76ad4017-3579-5b11-afe6-5e959cd62fa7",
           "name": "26",
           "airportConditions": "",
           "notams": "",
@@ -8481,14 +8501,14 @@
           "voice": "ECHO"
         },
         {
-          "variableName": "UZNN_APP",
-          "text": "UZNN_APP",
-          "voice": "NAMANGAN APPROACH ON 120.500"
+          "variableName": "UZTR_CTR",
+          "text": "UZTR_CTR",
+          "voice": "TASHKENT CONTROL ON 134.600"
         },
         {
-          "variableName": "UZTT_CTR",
-          "text": "UZTT_CTR",
-          "voice": "TASHKENT CONTROL ON 133.400"
+          "variableName": "RU_CEN_FSS",
+          "text": "RU-CEN_FSS",
+          "voice": "ASIA CENTER ON 132.850"
         }
       ],
       "airportConditionDefinitions": [],

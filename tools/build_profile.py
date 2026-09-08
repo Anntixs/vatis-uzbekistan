@@ -137,9 +137,6 @@ AIRPORTS = [
         ],
         # Parallel-runway combinations that are actually usable at Tashkent.
         "combos": [("08L", "08R"), ("26R", "26L")],
-        # AIP note on the chart.
-        "note": "DEPARTING ACFT CTC [UZTT_DEL] FOR ATC CLEARANCE "
-                "NOT EARLIER THAN 15 MIN BEFORE START-UP.",
     },
     {
         "identifier": "UZSS",
@@ -254,7 +251,7 @@ def contractions(airport):
     return [{"variableName": v, "text": t, "voice": s} for v, t, s in rows]
 
 
-def template(spoken, arr, dep, note=None):
+def template(spoken, arr, dep):
     """One ATIS element per line.
 
     [FULL_WX_STRING] would collapse the whole observation onto a single line,
@@ -278,8 +275,6 @@ def template(spoken, arr, dep, note=None):
     if dep.get("intersections"):
         parts = ", ".join(f"FROM {twy} {tora} M" for twy, tora in dep["intersections"])
         lines.append(f"INTERSECTION DEPARTURE TORA {parts}.")
-    if note:
-        lines.append(note)
     lines.append("ON INITIAL CTC REPORT STAND AND READINESS.")
     # Trailing newline: vATIS appends the closing statement directly to the
     # template, which would otherwise run into the last line.
@@ -296,7 +291,7 @@ def presets(airport):
                 "name": rwy["rwy"],
                 "airportConditions": "",
                 "notams": "",
-                "template": template(airport["spoken"], rwy, rwy, airport.get("note")),
+                "template": template(airport["spoken"], rwy, rwy),
                 "externalGenerator": copy.deepcopy(EXT_GENERATOR),
             }
         )
@@ -308,10 +303,7 @@ def presets(airport):
                 "name": name,
                 "airportConditions": "",
                 "notams": "",
-                "template": template(
-                    airport["spoken"], by_rwy[arr], by_rwy[dep],
-                    airport.get("note"),
-                ),
+                "template": template(airport["spoken"], by_rwy[arr], by_rwy[dep]),
                 "externalGenerator": copy.deepcopy(EXT_GENERATOR),
             }
         )

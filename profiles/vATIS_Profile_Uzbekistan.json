@@ -2160,14 +2160,34 @@
           "voice": "ECHO"
         },
         {
-          "variableName": "UZTT_APP",
-          "text": "UZTT_APP",
-          "voice": "TASHKENT APPROACH ON 124.000"
+          "variableName": "UZTT_DEL",
+          "text": "UZTT_DEL",
+          "voice": "TASHKENT DELIVERY ON 129.400"
         },
         {
-          "variableName": "UZTT_CTR",
-          "text": "UZTT_CTR",
-          "voice": "TASHKENT CONTROL ON 133.400"
+          "variableName": "UZTT_GND",
+          "text": "UZTT_GND",
+          "voice": "TASHKENT GROUND ON 121.700"
+        },
+        {
+          "variableName": "UZTT_TWR",
+          "text": "UZTT_TWR",
+          "voice": "TASHKENT TOWER ON 120.400"
+        },
+        {
+          "variableName": "UZTT_APP",
+          "text": "UZTT_APP",
+          "voice": "TASHKENT APPROACH ON 119.400"
+        },
+        {
+          "variableName": "UZTR_CTR",
+          "text": "UZTR_CTR",
+          "voice": "TASHKENT CONTROL ON 134.600"
+        },
+        {
+          "variableName": "RU_CEN_FSS",
+          "text": "RU-CEN_FSS",
+          "voice": "ASIA CENTER ON 132.850"
         }
       ],
       "airportConditionDefinitions": [],
@@ -4267,14 +4287,14 @@
           "voice": "ECHO"
         },
         {
-          "variableName": "UZSS_APP",
-          "text": "UZSS_APP",
-          "voice": "SAMARKAND APPROACH ON 121.200"
+          "variableName": "UZTR_CTR",
+          "text": "UZTR_CTR",
+          "voice": "TASHKENT CONTROL ON 134.600"
         },
         {
-          "variableName": "UZTT_CTR",
-          "text": "UZTT_CTR",
-          "voice": "TASHKENT CONTROL ON 133.400"
+          "variableName": "RU_CEN_FSS",
+          "text": "RU-CEN_FSS",
+          "voice": "ASIA CENTER ON 132.850"
         }
       ],
       "airportConditionDefinitions": [],
@@ -6374,14 +6394,14 @@
           "voice": "ECHO"
         },
         {
-          "variableName": "UZFF_APP",
-          "text": "UZFF_APP",
-          "voice": "FERGANA APPROACH ON 120.900"
+          "variableName": "UZTR_CTR",
+          "text": "UZTR_CTR",
+          "voice": "TASHKENT CONTROL ON 134.600"
         },
         {
-          "variableName": "UZTT_CTR",
-          "text": "UZTT_CTR",
-          "voice": "TASHKENT CONTROL ON 133.400"
+          "variableName": "RU_CEN_FSS",
+          "text": "RU-CEN_FSS",
+          "voice": "ASIA CENTER ON 132.850"
         }
       ],
       "airportConditionDefinitions": [],
@@ -8481,14 +8501,14 @@
           "voice": "ECHO"
         },
         {
-          "variableName": "UZNN_APP",
-          "text": "UZNN_APP",
-          "voice": "NAMANGAN APPROACH ON 120.500"
+          "variableName": "UZTR_CTR",
+          "text": "UZTR_CTR",
+          "voice": "TASHKENT CONTROL ON 134.600"
         },
         {
-          "variableName": "UZTT_CTR",
-          "text": "UZTT_CTR",
-          "voice": "TASHKENT CONTROL ON 133.400"
+          "variableName": "RU_CEN_FSS",
+          "text": "RU-CEN_FSS",
+          "voice": "ASIA CENTER ON 132.850"
         }
       ],
       "airportConditionDefinitions": [],

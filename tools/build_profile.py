@@ -53,8 +53,30 @@ COMMON_CONTRACTIONS = [
     ("E", "E", "ECHO"),
 ]
 
+# VATSIM (VATRUS / Central Asian Zone) controller positions, as published on
+# 8 September 2026. Only UZTT has dedicated aerodrome positions; the Fergana
+# Valley and Samarkand fields are worked top-down from Tashkent Control or from
+# the Central Asian Zone FSS.
+#   logon callsign, spoken name, frequency in MHz
+ATC_POSITIONS = {
+    "UZTT_DEL": ("TASHKENT DELIVERY", "129.400"),
+    "UZTT_GND": ("TASHKENT GROUND", "121.700"),
+    "UZTT_TWR": ("TASHKENT TOWER", "120.400"),
+    "UZTT_APP": ("TASHKENT APPROACH", "119.400"),
+    "UZTR_CTR": ("TASHKENT CONTROL", "134.600"),
+    "RU-CEN_FSS": ("ASIA CENTER", "132.850"),
+}
+
+
+def position(callsign):
+    """Contraction row for a controller position: text is the logon callsign."""
+    spoken, freq = ATC_POSITIONS[callsign]
+    return (callsign.replace("-", "_"), callsign, f"{spoken} ON {freq}")
+
+
 # identifier, city name, spoken facility name, ATIS frequency (Hz),
-# magnetic variation (negative = East), taxiway/TORA data per runway.
+# magnetic variation (negative = East), taxiway/TORA data per runway,
+# and the controller positions that work the field.
 AIRPORTS = [
     {
         "identifier": "UZTT",
@@ -62,9 +84,13 @@ AIRPORTS = [
         "spoken": "TASHKENT ISLAM KARIMOV",
         "frequency": 127000000,
         "magvar": -5,
-        "extra_contractions": [
-            ("UZTT_APP", "UZTT_APP", "TASHKENT APPROACH ON 124.000"),
-            ("UZTT_CTR", "UZTT_CTR", "TASHKENT CONTROL ON 133.400"),
+        "positions": [
+            "UZTT_DEL",
+            "UZTT_GND",
+            "UZTT_TWR",
+            "UZTT_APP",
+            "UZTR_CTR",
+            "RU-CEN_FSS",
         ],
         "runways": [
             {"rwy": "08L", "app": "ILS", "twy": "A", "tora": 4000},
@@ -81,10 +107,8 @@ AIRPORTS = [
         "spoken": "SAMARKAND",
         "frequency": 127200000,
         "magvar": -5,
-        "extra_contractions": [
-            ("UZSS_APP", "UZSS_APP", "SAMARKAND APPROACH ON 121.200"),
-            ("UZTT_CTR", "UZTT_CTR", "TASHKENT CONTROL ON 133.400"),
-        ],
+        # No dedicated Samarkand positions are published; worked top-down.
+        "positions": ["UZTR_CTR", "RU-CEN_FSS"],
         "runways": [
             {"rwy": "09", "app": "ILS", "twy": "A", "tora": 3100},
             {"rwy": "27", "app": "RNP", "twy": "C", "tora": 3100},
@@ -97,10 +121,8 @@ AIRPORTS = [
         "spoken": "FERGANA",
         "frequency": 127400000,
         "magvar": -5,
-        "extra_contractions": [
-            ("UZFF_APP", "UZFF_APP", "FERGANA APPROACH ON 120.900"),
-            ("UZTT_CTR", "UZTT_CTR", "TASHKENT CONTROL ON 133.400"),
-        ],
+        # No dedicated Fergana positions are published; worked top-down.
+        "positions": ["UZTR_CTR", "RU-CEN_FSS"],
         "runways": [
             {"rwy": "08", "app": "RNP", "twy": "A", "tora": 2700},
             {"rwy": "26", "app": "ILS", "twy": "B", "tora": 2700},
@@ -113,10 +135,8 @@ AIRPORTS = [
         "spoken": "NAMANGAN",
         "frequency": 127600000,
         "magvar": -5,
-        "extra_contractions": [
-            ("UZNN_APP", "UZNN_APP", "NAMANGAN APPROACH ON 120.500"),
-            ("UZTT_CTR", "UZTT_CTR", "TASHKENT CONTROL ON 133.400"),
-        ],
+        # No dedicated Namangan positions are published; worked top-down.
+        "positions": ["UZTR_CTR", "RU-CEN_FSS"],
         "runways": [
             {"rwy": "08", "app": "RNP", "twy": "A", "tora": 3000},
             {"rwy": "26", "app": "RNP", "twy": "B", "tora": 3000},
@@ -187,7 +207,7 @@ EXT_GENERATOR = {
 
 
 def contractions(airport):
-    rows = COMMON_CONTRACTIONS + airport["extra_contractions"]
+    rows = COMMON_CONTRACTIONS + [position(c) for c in airport["positions"]]
     return [{"variableName": v, "text": t, "voice": s} for v, t, s in rows]
 
 

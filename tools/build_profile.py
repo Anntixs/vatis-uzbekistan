@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the vATIS profile for Uzbekistan (UZTT / UZSS / UZFF / UZNN).
+"""Generate the vATIS profile for Uzbekistan (UTTT / UTSS / UTFF / UTNN).
 
 The ATIS format block (metric visibility, QNH in hPa) is taken from the UNNT
 reference profile, since Uzbekistan uses the same ICAO/CIS-style ATIS
@@ -11,7 +11,11 @@ phraseology. Two blocks are overridden:
   QNH-dependent transition level table of the reference profile.
 
 The same 2 October 2025 change replaced the Soviet-era UT location indicator
-prefix with UZ (the former UTTT becoming UZTT and so on, last two letters retained).
+prefix with UZ (the former UTTT becoming UZTT and so on, last two letters
+retained). vATIS does not recognise the UZ identifiers yet, so stations keep
+their legacy UT identifiers -- that is the code vATIS looks the aerodrome up
+by. The new code is recorded per airport as `icao` for reference only. VATSIM
+controller callsigns are unaffected by this and use the UZ form.
 """
 
 import copy
@@ -79,7 +83,9 @@ def position(callsign):
 # and the controller positions that work the field.
 AIRPORTS = [
     {
-        "identifier": "UZTT",
+        # vATIS still requires the legacy identifier; new code: UZTT.
+        "identifier": "UTTT",
+        "icao": "UZTT",
         "name": "Tashkent",
         "spoken": "TASHKENT ISLAM KARIMOV",
         "frequency": 127000000,
@@ -98,11 +104,13 @@ AIRPORTS = [
             {"rwy": "08R", "app": "RNP", "twy": "B", "tora": 3800},
             {"rwy": "26L", "app": "RNP", "twy": "E", "tora": 3800},
         ],
-        # Parallel-runway combinations that are actually usable at UZTT.
+        # Parallel-runway combinations that are actually usable at Tashkent.
         "combos": [("08L", "08R"), ("26R", "26L")],
     },
     {
-        "identifier": "UZSS",
+        # vATIS still requires the legacy identifier; new code: UZSS.
+        "identifier": "UTSS",
+        "icao": "UZSS",
         "name": "Samarkand",
         "spoken": "SAMARKAND",
         "frequency": 127200000,
@@ -116,7 +124,9 @@ AIRPORTS = [
         "combos": [],
     },
     {
-        "identifier": "UZFF",
+        # vATIS still requires the legacy identifier; new code: UZFF.
+        "identifier": "UTFF",
+        "icao": "UZFF",
         "name": "Fergana",
         "spoken": "FERGANA",
         "frequency": 127400000,
@@ -130,7 +140,9 @@ AIRPORTS = [
         "combos": [],
     },
     {
-        "identifier": "UZNN",
+        # vATIS still requires the legacy identifier; new code: UZNN.
+        "identifier": "UTNN",
+        "icao": "UZNN",
         "name": "Namangan",
         "spoken": "NAMANGAN",
         "frequency": 127600000,
